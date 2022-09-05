@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react"
+import * as SC from "./App.styles"
+import { Category } from "./types/Category"
+import { Item } from "./types/Item"
 
-function App() {
+import { categories } from "./data/categories"
+import { items } from "./data/items"
+import { getCurrentMonth, filterListByMonth } from "./helpers/dateFilter"
+const App = () => {
+  const [list, setList] = useState(items)
+  const [filteredList, setFilteredList] =  useState<Item[]>([])
+  const [currentMonth, setCurrentMonth] = useState(getCurrentMonth())
+  console.log(typeof currentMonth)
+  useEffect(() => {
+    setFilteredList(filterListByMonth(list, currentMonth))
+  }, [currentMonth, list])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SC.Container>
+      <SC.Header>
+        <SC.HeaderText>
+          Financial System
+        </SC.HeaderText>
+      </SC.Header>
+      <SC.Body>
+        {/* Information area */}
+
+        {/* Insert informations */}
+
+        {/* Items table */}
+      </SC.Body>
+    </SC.Container>
   );
 }
 
