@@ -13,7 +13,7 @@ const App = () => {
   console.log(typeof currentMonth)
   useEffect(() => {
     setFilteredList(filterListByMonth(list, currentMonth))
-  }, [currentMonth, lit])
+  }, [currentMonth, list])
 
   return (
     <SC.Container>
