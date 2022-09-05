@@ -1,5 +1,6 @@
 import * as SC from "./styles"
 import { Item } from '../../types/Item'
+import { TableItem } from "../TableItem"
 interface TableAreaProps  {
     list: Item[]
 }
@@ -16,12 +17,7 @@ export const TableArea = (props: TableAreaProps) => {
             </thead>
             <tbody>
                 {props.list.map((item, index) =>(
-                    <tr key={index}>
-                        <td>{item.title}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                   <TableItem key={index} item={item}/>
                 ))}
             </tbody>
         </SC.Table>

@@ -14,7 +14,6 @@ const App = () => {
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonth())
   useEffect(() => {
     setFilteredList(filterListByMonth(list, currentMonth))
-    console.log(filteredList)
   }, [currentMonth, list])
 
   return (
